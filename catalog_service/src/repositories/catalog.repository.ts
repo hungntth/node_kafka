@@ -2,6 +2,7 @@ import { PrismaClient } from "@prisma/client";
 import { ICatalogRepository } from "../interfaces/catalogRepository.interface";
 import { Product } from "../models/product.model";
 import { ProductFactory } from "../utils/fixtures";
+import { NotFoundError } from "../utils";
 
 export class CatalogRepository implements ICatalogRepository {
   _prisma: PrismaClient;
@@ -39,6 +40,6 @@ export class CatalogRepository implements ICatalogRepository {
     if (product) {
       return Promise.resolve(product);
     }
-    throw new Error("product not found");
+    throw new NotFoundError("product not found");
   }
 }
