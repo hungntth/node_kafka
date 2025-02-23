@@ -1,16 +1,16 @@
 import * as Repository from "../repository/cart.repository";
-import { CartRepositoryType } from "../types/repository.type";
 import { CreateCart } from "../service/cart.service";
 
+
 describe("cartService", () => {
-  let repo: CartRepositoryType;
+  let repo: any;
 
   beforeEach(() => {
     repo = Repository.CartRepository;
   });
 
   afterEach(() => {
-    repo = {} as CartRepositoryType;
+    repo = {} as any;
   });
 
   it("should return correct data while creating cart", async () => {
