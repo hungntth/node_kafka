@@ -14,7 +14,7 @@ describe("cartService", () => {
   });
 
   it("should return correct data while creating cart", async () => {
-    const mockCart = {
+    const mockCart: any = {
       title: "smart phone",
       amount: 1200,
     };
