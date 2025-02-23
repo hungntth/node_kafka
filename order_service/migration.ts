@@ -1,0 +1,20 @@
+import { Pool } from "pg";
+import { DATABASE_URL } from "./src/config";
+import { drizzle } from "drizzle-orm/node-postgres";
+import { migrate } from "drizzle-orm/node-postgres/migrator";
+
+async function runMigration() {
+  try {
+    console.log("migration start...");
+    console.log(DATABASE_URL);
+    const pool = new Pool({ connectionString: DATABASE_URL });
+    const db = drizzle(pool);
+    await migrate(db, { migrationsFolder: "./src/db/migrations" });
+    console.log("migration was successful!");
+    pool.end();
+  } catch (err) {
+    console.log("migration error:::::", err);
+  }
+}
+
+runMigration();
