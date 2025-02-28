@@ -19,12 +19,12 @@ describe("cartService", () => {
       amount: 1200,
     };
 
-    jest.spyOn(Repository.CartRepository, "create").mockImplementationOnce(() =>
-      Promise.resolve({
-        message: "fake response from cart repository",
-        input: mockCart,
-      })
-    );
+    // jest.spyOn(Repository.CartRepository, "create").mockImplementationOnce(() =>
+    //   Promise.resolve({
+    //     message: "fake response from cart repository",
+    //     input: mockCart,
+    //   })
+    // );
 
     const res = await CreateCart(mockCart, repo);
 
