@@ -10,6 +10,15 @@ export class CatalogRepository implements ICatalogRepository {
   constructor() {
     this._prisma = new PrismaClient();
   }
+  findStock(ids: number[]): Promise<Product[]> {
+    return this._prisma.product.findMany({
+      where: {
+        id: {
+          in: ids,
+        },
+      },
+    });
+  }
 
   async create(data: Product): Promise<Product> {
     return this._prisma.product.create({
