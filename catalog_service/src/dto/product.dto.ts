@@ -26,3 +26,12 @@ export class UpdateProductRequest {
   @IsNumber()
   stock?: number;
 }
+
+export interface Product {
+  id: number;
+  name: string;
+  price: number;
+  stock: number;
+  variant: string;
+}
+
