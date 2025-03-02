@@ -15,6 +15,13 @@
       "when": 1740303101340,
       "tag": "0001_odd_doomsday",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1740910526990,
+      "tag": "0002_illegal_johnny_storm",
+      "breakpoints": true
     }
   ]
 }

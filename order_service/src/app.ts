@@ -22,6 +22,12 @@ export const ExpressApp = async () => {
   //   console.log("consumer connected");
   // });
 
+  const consumer = await MessageBroker.connectConsumer<Consumer>();
+  consumer.on("consumer.connect", () => {
+    /// write all business logic
+    console.log("consumer connected");
+  });
+
   // // 2nd step: subscribe to the topic or publish the message
   // await MessageBroker.subscribe((message) => {
   //   console.log("Consumer received the message");
