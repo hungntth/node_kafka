@@ -79,4 +79,13 @@ router.delete(
   }
 );
 
+router.get(
+  "/orders/:id/checkout",
+  async (req: Request, res: Response): Promise<any> => {
+    const orderId = parseInt(req.params.id);
+    const response = await service.GetOrderDetails(orderId, repo);
+    return res.status(200).json(response);
+  }
+);
+
 export default router;

@@ -1,9 +1,8 @@
-import cors from "cors";
 import express, { NextFunction, Request, Response } from "express";
-import cartRouter from "./routes/cart.routes";
-import orderRouter from "./routes/order.routes";
-import { InitializeBroker } from "./service/broker.service";
+import cors from "cors";
 import { HandleErrorWithLogger, httpLogger } from "./utils";
+import { InitializeBroker } from "./service/broker.service";
+import paymentRoutes from "./routes/payment.routes";
 
 export const ExpressApp = async () => {
   const app = express();
@@ -13,10 +12,9 @@ export const ExpressApp = async () => {
 
   await InitializeBroker();
 
-  app.use(cartRouter);
-  app.use(orderRouter);
+  app.use(paymentRoutes);
 
-  app.use("/", (req: Request, res: Response, _: NextFunction): any => {
+  app.use("/", (req: Request, res: Response, _: NextFunction) => {
     return res.status(200).json({ message: "I am healthy!" });
   });
 
